@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahafo Ano Community Bank PLC - Banking Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #003d82 0%, #005daa 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #ffb81c;
+            color: #003d82;
+            font-weight: bold;
+        }
+
+        .btn-primary:hover {
+            background: #ffa500;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #003d82;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #003d82 0%, #005daa 100%);
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section {
+            padding: 4rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            color: #003d82;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .section h3 {
+            font-size: 1.5rem;
+            color: #005daa;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .board-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .board-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .board-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .board-card h4 {
+            color: #003d82;
+            margin-bottom: 0.5rem;
+        }
+
+        .position {
+            color: #ffb81c;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .financial-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, #003d82 0%, #005daa 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 2rem auto;
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #003d82;
+            font-weight: bold;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #ffb81c;
+            box-shadow: 0 0 5px rgba(255, 184, 28, 0.3);
+        }
+
+        .form-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .form-tab {
+            padding: 1rem;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 1rem;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .form-tab.active {
+            color: #003d82;
+            border-bottom-color: #ffb81c;
+        }
+
+        .form-content {
+            display: none;
+        }
+
+        .form-content.active {
+            display: block;
+        }
+
+        .tabs-content {
+            margin: 2rem 0;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #ddd;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 1rem;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active {
+            color: #003d82;
+            border-bottom-color: #ffb81c;
+        }
+
+        .kyc-section {
+            background: #e8f4f8;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .kyc-documents {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .doc-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .doc-card h4 {
+            color: #003d82;
+            margin-bottom: 1rem;
+        }
+
+        .doc-description {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-download {
+            display: inline-block;
+            background: #005daa;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-right: 0.5rem;
+            transition: background 0.3s;
+        }
+
+        .btn-download:hover {
+            background: #003d82;
+        }
+
+        .agm-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        footer {
+            background: #003d82;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #000;
+        }
+
+        .success-message {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section h2 {
+                font-size: 1.8rem;
+            }
+
+            .auth-buttons {
+                flex-direction: column;
+            }
+
+            .form-tabs, .tab-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#home" class="logo">🏦 Ahafo Ano Community Bank</a>
+                <nav>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#board">Board</a></li>
+                        <li><a href="#agm">AGM Report</a></li>
+                        <li><a href="#financials">Financials</a></li>
+                        <li><a href="#kyc">KYC</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <button class="btn btn-secondary" onclick="openAuthModal('login')">Login</button>
+                    <button class="btn btn-primary" onclick="openAuthModal('signup')">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Welcome to Ahafo Ano Community Bank PLC</h1>
+            <p>Your Trusted Financial Partner for Community Growth</p>
+            <button class="btn btn-primary" onclick="openAuthModal('signup')">Open an Account Today</button>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2>About Ahafo Ano Community Bank</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
+                Ahafo Ano Community Bank PLC is a leading financial institution dedicated to providing comprehensive banking services to our community.
+                We are committed to promoting financial inclusion, economic empowerment, and sustainable development through innovative financial solutions.
+                With over 15 years of service, we have built a reputation for trust, reliability, and customer-centric banking.
+            </p>
+        </div>
+    </section>
+
+    <!-- Board and Management Section -->
+    <section class="section" id="board">
+        <div class="container">
+            <h2>Board of Directors & Management</h2>
+
+            <h3>Board of Directors</h3>
+            <div class="board-grid">
+                <div class="board-card">
+                    <h4>Kwame Asante</h4>
+                    <div class="position">Chairman & Board President</div>
+                    <p>With 20+ years in banking and community development, leading our strategic vision.</p>
+                </div>
+                <div class="board-card">
+                    <h4>Ama Mensah</h4>
+                    <div class="position">Vice Chairman</div>
+                    <p>Finance expert and board advisor with extensive corporate governance experience.</p>
+                </div>
+                <div class="board-card">
+                    <h4>Kofi Boateng</h4>
+                    <div class="position">Board Member</div>
+                    <p>Community representative ensuring our services meet local needs and standards.</p>
+                </div>
+                <div class="board-card">
+                    <h4>Akosua Owusu</h4>
+                    <div class="position">Board Member</div>
+                    <p>Risk management specialist safeguarding our institution's financial integrity.</p>
+                </div>
+            </div>
+
+            <h3>Management Team</h3>
+            <div class="board-grid">
+                <div class="board-card">
+                    <h4>Benjamin Nti</h4>
+                    <div class="position">General Manager</div>
+                    <p>Oversees all banking operations and strategic implementation across all branches.</p>
+                </div>
+                <div class="board-card">
+                    <h4>Abena Yeboah</h4>
+                    <div class="position">Head of Retail Banking</div>
+                    <p>Manages customer services, deposits, and personal banking products.</p>
+                </div>
+                <div class="board-card">
+                    <h4>Samson Osei</h4>
+                    <div class="position">Chief Finance Officer</div>
+                    <p>Manages financial planning, reporting, and institutional accounting standards.</p>
+                </div>
+                <div class="board-card">
+                    <h4>Grace Amponsah</h4>
+                    <div class="position">Compliance & Risk Officer</div>
+                    <p>Ensures regulatory compliance and manages institutional risk frameworks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Annual General Meeting Report -->
+    <section class="section" id="agm">
+        <div class="container">
+            <h2>Annual General Meeting Report 2024</h2>
+
+            <div class="agm-content">
+                <h3>AGM Meeting Summary</h3>
+                <p>
+                    The 15th Annual General Meeting of Ahafo Ano Community Bank PLC was held on March 15, 2024,
+                    with shareholders, board members, and management in attendance.
+                </p>
+
+                <h3>Key Highlights</h3>
+                <ul style="margin: 1.5rem 0; padding-left: 2rem;">
+                    <li>Approval of 2023 Financial Statements and Dividend Payment</li>
+                    <li>Election of New Board Members for 2024-2026 Term</li>
+                    <li>Presentation of 2024 Strategic Objectives and Business Plan</li>
+                    <li>Discussion on Branch Expansion and Technology Infrastructure Upgrades</li>
+                    <li>Community Impact Programs and Social Responsibility Initiatives</li>
+                </ul>
+
+                <h3>Resolutions Passed</h3>
+                <ul style="margin: 1.5rem 0; padding-left: 2rem;">
+                    <li>Dividend of GHS 0.45 per share approved for 2023 financial year</li>
+                    <li>Capital Expenditure budget of GHS 2.5 million approved for 2024</li>
+                    <li>Reappointment of External Auditors (KPMG Ghana)</li>
+                    <li>Approval of remuneration policy for executive management</li>
+                    <li>Authorization to open additional branch in Kumasi</li>
+                </ul>
+
+                <h3>Chairman's Statement</h3>
+                <p style="margin-top: 1.5rem;">
+                    "I am pleased to report that despite challenging economic conditions, our bank has demonstrated
+                    resilience and continued growth. Our asset base has grown by 18%, and we have successfully expanded
+                    our customer base by 12% in 2023. We remain committed to delivering exceptional service while maintaining
+                    strict regulatory standards and contributing positively to our communities."
+                </p>
+                <p style="margin-top: 1rem; text-align: right; font-style: italic;">
+                    — Kwame Asante, Chairman
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financial Standing Section -->
+    <section class="section" id="financials">
+        <div class="container">
+            <h2>Financial Standing & Performance</h2>
+
+            <h3>Key Financial Highlights (2023)</h3>
+            <div class="financial-highlights">
+                <div class="stat-box">
+                    <div class="stat-number">GHS 156.4M</div>
+                    <div class="stat-label">Total Assets</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">GHS 98.7M</div>
+                    <div class="stat-label">Customer Deposits</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">GHS 12.3M</div>
+                    <div class="stat-label">Net Profit</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">18.2%</div>
+                    <div class="stat-label">Asset Growth YoY</div>
+                </div>
+            </div>
+
+            <div class="agm-content">
+                <h3>Balance Sheet Summary (GHS millions)</h3>
+                <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0;">
+                    <tr style="background: #f0f0f0;">
+                        <td style="padding: 1rem; border: 1px solid #ddd; font-weight: bold;">Item</td>
+                        <td style="padding: 1rem; border: 1px solid #ddd; font-weight: bold;">2023</td>
+                        <td style="padding: 1rem; border: 1px solid #ddd; font-weight: bold;">2022</td>
+                        <td style="padding: 1rem; border: 1px solid #ddd; font-weight: bold;">Growth %</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">Total Assets</td>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">156.4</td>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">132.1</td>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">18.4%</td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="padding: 1rem; border: 1px solid #ddd;">Customer Deposits</td>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">98.7</td>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">85.3</td>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">15.7%</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">Loans & Advances</td>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">94.2</td>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">78.5</td>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">20.0%</td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="padding: 1rem; border: 1px solid #ddd;">Shareholders' Equity</td>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">28.5</td>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">25.2</td>
+                        <td style="padding: 1rem; border: 1px solid #ddd;">13.1%</td>
+                    </tr>
+                </table>
+
+                <h3>Income Statement Highlights (GHS millions)</h3>
+                <ul style="margin: 1.5rem 0; padding-left: 2rem;">
+                    <li><strong>Operating Income:</strong> GHS 18.5M (↑ 16.4% YoY)</li>
+                    <li><strong>Operating Expenses:</strong> GHS 6.2M (↓ 2.1% YoY)</li>
+                    <li><strong>Profit Before Tax:</strong> GHS 14.1M (↑ 22.8% YoY)</li>
+                    <li><strong>Net Profit After Tax:</strong> GHS 12.3M (↑ 20.5% YoY)</li>
+                </ul>
+
+                <h3>Key Financial Ratios</h3>
+                <ul style="margin: 1.5rem 0; padding-left: 2rem;">
+                    <li><strong>Capital Adequacy Ratio:</strong> 16.8% (Well above regulatory requirement of 13%)</li>
+                    <li><strong>Return on Assets (ROA):</strong> 8.2%</li>
+                    <li><strong>Return on Equity (ROE):</strong> 43.2%</li>
+                    <li><strong>Non-Performing Loan Ratio:</strong> 2.1% (Low risk)</li>
+                    <li><strong>Loan-to-Deposit Ratio:</strong> 95.4% (Healthy)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- KYC Documents Section -->
+    <section class="section" id="kyc">
+        <div class="container">
+            <h2>Know Your Customer (KYC) Documentation</h2>
+
+            <div class="kyc-section">
+                <h3>New Account Opening Requirements</h3>
+                <p>
+                    To open a new account with Ahafo Ano Community Bank, we require proper identity verification
+                    and customer information according to regulatory standards. Download the required forms below,
+                    complete them with accurate information, and upload them to initiate your account creation process.
+                </p>
+            </div>
+
+            <h3>Required Documents</h3>
+            <div class="kyc-documents">
+                <div class="doc-card">
+                    <h4>KYC Form</h4>
+                    <div class="doc-description">
+                        Primary customer information form including personal details, employment information,
+                        and beneficial ownership details.
+                    </div>
+                    <a href="javascript:downloadDocument('KYC_Form.pdf')" class="btn-download">Download</a>
+                </div>
+
+                <div class="doc-card">
+                    <h4>Identity Verification</h4>
+                    <div class="doc-description">
+                        Government-issued identification document (Passport, National ID, or Driver's License)
+                        copy for verification purposes.
+                    </div>
+                    <a href="javascript:downloadDocument('Identity_Verification.pdf')" class="btn-download">Download Guide</a>
+                </div>
+
+                <div class="doc-card">
+                    <h4>Address Verification</h4>
+                    <div class="doc-description">
+                        Recent utility bill or government document proving your residential address
+                        (not older than 3 months).
+                    </div>
+                    <a href="javascript:downloadDocument('Address_Verification.pdf')" class="btn-download">Download Guide</a>
+                </div>
+
+                <div class="doc-card">
+                    <h4>Occupation Verification</h4>
+                    <div class="doc-description">
+                        Employment letter or business registration documents for self-employed individuals.
+                        Required for certain account types.
+                    </div>
+                    <a href="javascript:downloadDocument('Occupation_Verification.pdf')" class="btn-download">Download Guide</a>
+                </div>
+
+                <div class="doc-card">
+                    <h4>Source of Funds Declaration</h4>
+                    <div class="doc-description">
+                        Declaration form explaining the source and nature of funds to be deposited.
+                        Mandatory for compliance and AML regulations.
+                    </div>
+                    <a href="javascript:downloadDocument('Source_of_Funds.pdf')" class="btn-download">Download</a>
+                </div>
+
+                <div class="doc-card">
+                    <h4>PEP Declaration Form</h4>
+                    <div class="doc-description">
+                        Politically Exposed Person declaration form. All customers must complete this
+                        as per regulatory requirements.
+                    </div>
+                    <a href="javascript:downloadDocument('PEP_Declaration.pdf')" class="btn-download">Download</a>
+                </div>
+            </div>
+
+            <h2 style="margin-top: 3rem;">Upload Your Documents</h2>
+            <div class="form-container">
+                <div class="success-message" id="uploadSuccess">
+                    ✓ Documents submitted successfully! Our team will review and contact you within 2 business days.
+                </div>
+
+                <form id="kycForm" onsubmit="handleKYCSubmit(event)">
+                    <div class="form-group">
+                        <label>Full Name *</label>
+                        <input type="text" name="fullname" required placeholder="Enter your full name">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Address *</label>
+                        <input type="email" name="email" required placeholder="Enter your email">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone Number *</label>
+                        <input type="tel" name="phone" required placeholder="Enter your phone number">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Account Type *</label>
+                        <select name="accountType" required>
+                            <option value="">Select Account Type</option>
+                            <option value="savings">Savings Account</option>
+                            <option value="current">Current Account</option>
+                            <option value="business">Business Account</option>
+                            <option value="student">Student Account</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>KYC Form *</label>
+                        <input type="file" name="kycform" accept=".pdf,.doc,.docx" required>
+                        <small style="color: #666;">PDF, DOC, or DOCX format only</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Identity Document *</label>
+                        <input type="file" name="identity" accept=".pdf,.jpg,.jpeg,.png" required>
+                        <small style="color: #666;">PDF or Image format</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Address Proof *</label>
+                        <input type="file" name="address" accept=".pdf,.jpg,.jpeg,.png" required>
+                        <small style="color: #666;">PDF or Image format</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Occupation Document</label>
+                        <input type="file" name="occupation" accept=".pdf,.doc,.docx">
+                        <small style="color: #666;">Optional for certain account types</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Source of Funds Declaration *</label>
+                        <input type="file" name="sourcefunds" accept=".pdf,.doc,.docx" required>
+                        <small style="color: #666;">PDF or DOC format</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" name="agree" required>
+                            I declare that the information provided is true and accurate
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Documents</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Authentication Modal -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAuthModal()">&times;</span>
+
+            <div class="form-tabs">
+                <button class="form-tab active" onclick="switchAuthTab('login')">Login</button>
+                <button class="form-tab" onclick="switchAuthTab('signup')">Sign Up</button>
+            </div>
+
+            <!-- Login Form -->
+            <div id="login" class="form-content active">
+                <h2>Customer Login</h2>
+                <form onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label>Customer ID or Email *</label>
+                        <input type="text" name="customerid" required placeholder="Enter your Customer ID or Email">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password *</label>
+                        <input type="password" name="password" required placeholder="Enter your password">
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" name="remember">
+                            Remember me on this device
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+
+                    <p style="margin-top: 1rem; text-align: center;">
+                        <a href="javascript:void(0)" style="color: #005daa; text-decoration: none;">Forgot Password?</a>
+                    </p>
+                </form>
+            </div>
+
+            <!-- Signup Form -->
+            <div id="signup" class="form-content">
+                <h2>Create New Account</h2>
+                <form onsubmit="handleSignup(event)">
+                    <div class="form-group">
+                        <label>Full Name *</label>
+                        <input type="text" name="fullname" required placeholder="Enter your full name">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Address *</label>
+                        <input type="email" name="email" required placeholder="Enter your email">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone Number *</label>
+                        <input type="tel" name="phone" required placeholder="Enter your phone number">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Account Type *</label>
+                        <select name="accounttype" required>
+                            <option value="">Select Account Type</option>
+                            <option value="savings">Savings Account</option>
+                            <option value="current">Current Account</option>
+                            <option value="business">Business Account</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Create Password *</label>
+                        <input type="password" name="password" required placeholder="Create a strong password">
+                        <small style="color: #666;">At least 8 characters with uppercase, lowercase, and numbers</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Confirm Password *</label>
+                        <input type="password" name="confirmpassword" required placeholder="Confirm your password">
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" name="terms" required>
+                            I agree to the Terms and Conditions
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Create Account</button>
+
+                    <p style="margin-top: 1rem; text-align: center;">
+                        By signing up, you'll receive our <strong>Welcome Bonus</strong> of GHS 50 in your account!
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Ahafo Ano Community Bank PLC. All rights reserved.</p>
+            <p>
+                <a href="javascript:void(0)" style="color: white; text-decoration: none; margin: 0 1rem;">Privacy Policy</a> |
+                <a href="javascript:void(0)" style="color: white; text-decoration: none; margin: 0 1rem;">Terms of Service</a> |
+                <a href="javascript:void(0)" style="color: white; text-decoration: none; margin: 0 1rem;">Contact Us</a>
+            </p>
+            <p>📧 info@ahafoanobank.com | 📞 +233 XXX XXX XXXX | 🏦 Branch Locator</p>
+        </div>
+    </footer>
+
+    <script>
+        // Modal Functions
+        function openAuthModal(tab) {
+            document.getElementById('authModal').style.display = 'block';
+            switchAuthTab(tab);
+        }
+
+        function closeAuthModal() {
+            document.getElementById('authModal').style.display = 'none';
+        }
+
+        function switchAuthTab(tab) {
+            const loginContent = document.getElementById('login');
+            const signupContent = document.getElementById('signup');
+            const tabs = document.querySelectorAll('.form-tab');
+
+            if (tab === 'login') {
+                loginContent.classList.add('active');
+                signupContent.classList.remove('active');
+                tabs[0].classList.add('active');
+                tabs[1].classList.remove('active');
+            } else {
+                signupContent.classList.add('active');
+                loginContent.classList.remove('active');
+                tabs[1].classList.add('active');
+                tabs[0].classList.remove('active');
+            }
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('authModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Form Handlers
+        function handleLogin(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            console.log('Login Data:', Object.fromEntries(formData));
+            alert('Login successful! Redirecting to dashboard...');
+            closeAuthModal();
+        }
+
+        function handleSignup(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+
+            if (data.password !== data.confirmpassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            console.log('Signup Data:', {
+                fullname: data.fullname,
+                email: data.email,
+                phone: data.phone,
+                accounttype: data.accounttype
+            });
+            alert('Account created successfully! Welcome to Ahafo Ano Community Bank. Check your email for next steps.');
+            closeAuthModal();
+        }
+
+        function handleKYCSubmit(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            console.log('KYC Submission:', Object.fromEntries(formData));
+
+            const successMessage = document.getElementById('uploadSuccess');
+            successMessage.style.display = 'block';
+
+            event.target.reset();
+
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 5000);
+        }
+
+        // Document Download Handler
+        function downloadDocument(filename) {
+            alert('Downloading ' + filename + '...\n\nIn a real application, this would download the document.');
+            console.log('Document download requested:', filename);
+        }
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
