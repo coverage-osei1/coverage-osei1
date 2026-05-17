@@ -1,0 +1,18 @@
+{
+  "comment": "Branch Performance Report Automation Configuration",
+  "base_url": "http://10.7.11.124/apexlive",
+  "use_auth": true,
+  "username": "YOUR_USERNAME",
+  "password": "YOUR_PASSWORD",
+  "file_patterns": [
+    "*.xlsx",
+    "*.xls",
+    "*.pdf",
+    "*.csv"
+  ],
+  "date_column": "due_date",
+  "product_column": "product_name",
+  "cleanup_after_processing": false,
+  "output_directory": "reports",
+  "log_directory": "logs"
+}
