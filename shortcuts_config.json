@@ -1,0 +1,219 @@
+{
+  "shortcuts": [
+    {
+      "name": "Open Claude",
+      "id": "open_claude_basic",
+      "type": "basic",
+      "description": "Simple shortcut to open the Claude app",
+      "trigger": "voice",
+      "voicePhrase": "Hey Claude",
+      "actions": [
+        {
+          "type": "open_app",
+          "app": "Claude",
+          "appIdentifier": "com.anthropic.claude"
+        }
+      ],
+      "settings": {
+        "askBeforeRunning": false,
+        "showWhenRun": true,
+        "confirmBeforeOpening": false
+      },
+      "setupTime": "2 minutes",
+      "difficulty": "easy"
+    },
+    {
+      "name": "Open Claude Web",
+      "id": "open_claude_web",
+      "type": "web",
+      "description": "Open Claude in Safari browser",
+      "trigger": "siri",
+      "siriPhrase": "Claude web",
+      "actions": [
+        {
+          "type": "open_url",
+          "url": "https://claude.ai"
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        },
+        {
+          "type": "show_result",
+          "message": "Claude.ai opened in Safari"
+        }
+      ],
+      "settings": {
+        "askBeforeRunning": false,
+        "showWhenRun": true
+      },
+      "setupTime": "3 minutes",
+      "difficulty": "easy"
+    },
+    {
+      "name": "Open Claude (Advanced)",
+      "id": "open_claude_advanced",
+      "type": "advanced",
+      "description": "Open Claude with status notifications",
+      "trigger": "siri",
+      "siriPhrase": "Open Claude",
+      "actions": [
+        {
+          "type": "show_result",
+          "message": "Opening Claude..."
+        },
+        {
+          "type": "open_app",
+          "app": "Claude"
+        },
+        {
+          "type": "wait",
+          "duration": 1
+        },
+        {
+          "type": "show_result",
+          "message": "Claude is ready to chat! 🤖"
+        }
+      ],
+      "settings": {
+        "askBeforeRunning": false,
+        "showWhenRun": true
+      },
+      "setupTime": "5 minutes",
+      "difficulty": "medium"
+    },
+    {
+      "name": "Ask Claude",
+      "id": "ask_claude",
+      "type": "message",
+      "description": "Ask Claude a question and send it directly",
+      "trigger": "siri",
+      "siriPhrase": "Ask Claude",
+      "actions": [
+        {
+          "type": "ask_for_text",
+          "prompt": "What do you want to ask Claude?"
+        },
+        {
+          "type": "copy_to_clipboard"
+        },
+        {
+          "type": "open_app",
+          "app": "Claude"
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        }
+      ],
+      "instructions": "After Claude opens, tap the message field and paste your question",
+      "settings": {
+        "askBeforeRunning": false,
+        "showWhenRun": true
+      },
+      "setupTime": "5 minutes",
+      "difficulty": "medium"
+    }
+  ],
+  "voiceAutomationSetup": {
+    "platform": "iOS",
+    "minimumVersion": "13.0",
+    "recommendedVersion": "16.0+",
+    "requiredApp": "Shortcuts",
+    "authentication": {
+      "siri": "Voice recognition via Apple servers (encrypted)",
+      "app": "App Store credentials (optional)",
+      "claude": "Claude authentication (handled by app)"
+    }
+  },
+  "triggers": {
+    "voice": {
+      "description": "Personal voice automation triggers",
+      "method": "Shortcuts Automation > Voice",
+      "example": "Hey Claude",
+      "language": "Device language setting",
+      "accuracy": "High (local processing)"
+    },
+    "siri": {
+      "description": "Siri voice commands",
+      "method": "Shortcuts > Add to Siri",
+      "example": "Hey Siri, Open Claude",
+      "language": "Device language setting",
+      "accuracy": "Medium-High"
+    },
+    "lockScreen": {
+      "description": "Lock screen quick action buttons",
+      "method": "Lock Screen > Customize",
+      "availability": "iOS 16+",
+      "requires": "Custom shortcut"
+    },
+    "timer": {
+      "description": "Automatic at specific time",
+      "method": "Shortcuts Automation > Time of Day",
+      "example": "Open Claude at 9 AM daily"
+    },
+    "location": {
+      "description": "Automatic at specific location",
+      "method": "Shortcuts Automation > Location",
+      "example": "Open Claude when you arrive at work"
+    }
+  },
+  "troubleshooting": {
+    "voiceNotRecognized": {
+      "problem": "Siri doesn't recognize your phrase",
+      "solutions": [
+        "Speak clearly and at normal pace",
+        "Try a simpler phrase (2-3 words)",
+        "Ensure device is not in Silent mode",
+        "Check: Settings > Siri & Search > Enable Siri",
+        "Test Siri first with 'Hey Siri, what time is it?'"
+      ]
+    },
+    "automationNotRunning": {
+      "problem": "Shortcut doesn't run automatically",
+      "solutions": [
+        "Ensure 'Ask Before Running' is OFF",
+        "Check: Settings > Shortcuts > Allow Untrusted Shortcuts",
+        "Verify Claude app is installed and updated",
+        "Try running manually from Shortcuts > Library",
+        "Restart iPhone"
+      ]
+    },
+    "appNotOpening": {
+      "problem": "Claude app won't open",
+      "solutions": [
+        "Update Claude from App Store",
+        "Restart iPhone: Settings > General > Shut Down",
+        "Ensure sufficient storage space",
+        "Reinstall Claude if needed",
+        "Use 'Open URLs' to open Claude.ai instead"
+      ]
+    }
+  },
+  "bestPractices": {
+    "voicePhrases": [
+      "Keep phrases short (2-4 words)",
+      "Use natural, easy-to-pronounce phrases",
+      "Avoid phrases that sound like other Siri commands",
+      "Example good phrases: 'Hey Claude', 'Claude web', 'Ask Claude'"
+    ],
+    "security": [
+      "Voice phrases are stored locally on your device",
+      "Siri processing is encrypted by Apple",
+      "Don't include sensitive info in shortcut names",
+      "Use 'Ask Before Running' for sensitive actions"
+    ],
+    "performance": [
+      "Reduce wait times for faster execution",
+      "Use app instead of web for quicker launch",
+      "Minimize notifications if not needed",
+      "Test regularly to ensure voice phrases work"
+    ]
+  },
+  "documentation": {
+    "quickStart": "QUICKSTART.md",
+    "fullGuide": "COMPLETE_SETUP_GUIDE.md",
+    "setupInstructions": "CLAUDE_VOICE_AUTOMATION_SETUP.md",
+    "generator": "shortcut_generator.py"
+  }
+}
